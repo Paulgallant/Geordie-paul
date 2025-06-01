@@ -5,6 +5,17 @@ import WalletConnect from '../components/WalletConnect';
 import { UserPlus } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
+// Declare the JSX namespace
+declare namespace JSX {
+  interface IntrinsicElements {
+    div: React.JSX.IntrinsicElements['div'];
+    select: React.JSX.IntrinsicElements['select'];
+    option: React.JSX.IntrinsicElements['option'];
+    form: React.JSX.IntrinsicElements['form'];
+    main: React.JSX.IntrinsicElements['main'];
+  }
+}
+
 // Define the getLibrary function for Web3ReactProvider
 const getLibrary = (provider: any): providers.Web3Provider => {
   return new providers.Web3Provider(provider);
@@ -34,6 +45,20 @@ const SignUp: React.FC<SignUpProps> = () => {
     walletConnected: false,
     walletAddress: null
   });
+
+  // Add your component logic here
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <main className="flex-grow">
+        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+          {/* Your form content here */}
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default SignUp;
 
   useEffect(() => {
     if (window.ethereum) {
